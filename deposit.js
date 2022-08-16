@@ -1,4 +1,4 @@
-// step 1: add event listener to the deposit button 
+
 document.getElementById('btn-deposit').addEventListener('click', function () {
     // console.log('deposit')
     // step 2: get the deposit amount from the deposit input field
