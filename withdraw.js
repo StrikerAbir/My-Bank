@@ -3,14 +3,27 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     // console.log('withdraw')
     const withdrawField = document.getElementById('user-withdraw');
     const newWithdrawAmount = withdrawField.value;
+    console.log(newWithdrawAmount);
+    if (newWithdrawAmount=='') {
+        alert('Please enter Withdraw Amount.')
+        return;
+    }
+    
     withdrawField.value = '';
     const withdrawBoard = document.getElementById('withdraw-total');
     const previousWithdrawTotal = withdrawBoard.innerText;
-    const withdrawSum = parseFloat(newWithdrawAmount) + parseFloat(previousWithdrawTotal);
-    withdrawBoard.innerText = withdrawSum;
     
     const balanceBoard = document.getElementById('balance-total');
     const previousBalanceTotal = balanceBoard.innerText;
-    const balanceSubtract = parseFloat(previousBalanceTotal) - parseFloat(newWithdrawAmount);
-    balanceBoard.innerText = balanceSubtract;
+
+    if (parseFloat(previousBalanceTotal) > parseFloat(newWithdrawAmount)) {
+        const withdrawSum = parseFloat(newWithdrawAmount) + parseFloat(previousWithdrawTotal);
+        withdrawBoard.innerText = withdrawSum;
+
+        const balanceSubtract = parseFloat(previousBalanceTotal) - parseFloat(newWithdrawAmount);
+        balanceBoard.innerText = balanceSubtract;  
+    } else {
+        alert("You don't have enough money");
+        return;
+    }
 })
