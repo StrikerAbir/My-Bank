@@ -12,7 +12,7 @@ document.getElementById('btn-submit').addEventListener('click', function () {
     
     // ! Do not varify email password on the client side.
     // step 4: varify email and password on the server side
-    if (email === 'jahanaratisha@gmail.com' && password === 'tisha loves abir') {
+    if (email === 'strikerabirhasan@gmail.com' && password === 'strikerabir63') {
         console.log('valid user');
 
     } else {
